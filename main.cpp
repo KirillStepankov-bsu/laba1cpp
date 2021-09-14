@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main(){
@@ -9,6 +10,10 @@ int main(){
     if (k<=1 || x<=-1 || x>=1){ //проверка на корректность введенных данных
         cout << "NaN"; return 1;
     }
+
+    int amount_dig_aft_point;
+    cout << "Enter amount digits after point in result: ";
+    cin >> amount_dig_aft_point;
 
     const long double epsilon = pow(10, -k)/2;
     const double standart_result = 1/sqrt(1+x); //результат при помощи стандартных функций
@@ -25,5 +30,5 @@ int main(){
 
     result++;
 
-    cout << result << " " << standart_result;
+    cout << setprecision(amount_dig_aft_point) << result << " " << standart_result;
 }
